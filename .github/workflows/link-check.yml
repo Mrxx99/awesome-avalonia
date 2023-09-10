@@ -6,7 +6,7 @@ name: L
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master", "link-check-test" ]
+    branches: [ "master", "hyperlink-check-test" ]
   pull_request:
     branches: [ "master" ]
 
@@ -19,4 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: gaurav-nelson/github-action-markdown-link-check@v1
+    - uses: untitaker/hyperlink@0.1.31
+      with:
+        args: public/ --sources ./
